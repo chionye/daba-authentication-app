@@ -11,3 +11,49 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.bg-none{
+  background-color:transparent !important;
+}
+
+.border-left-none{
+  border-left:none !important;
+}
+.bt-bgn-blue{
+  background: #2F80ED !important;
+}
+.p-50-2x{
+  padding: 50px !important;
+}
+.pt-30{
+  padding-top: 30px !important;
+}
+.p-all{
+  padding: 10px 15px !important;
+  margin: 10px;
+}
+.mt-all{
+  margin-top: 30px !important;
+}
+.h-md-75{
+  height:75% !important;
+}
+.w-1{
+  width: 30px !important;
+}
+.m-bg-img{
+  background-image: url(./profile.png) !important;
+  background-size: contain;
+  width: 100px !important;
+  height: 100px !important;
+}
+.bg-light-black{
+  background-color: rgba(0,0,0,0.5);
+  width: 100% !important;
+  height: 100% !important;
+}
+@media screen and (max-width:400px){
+  .h-md-75{
+    height:100% !important;
+  }
+}
