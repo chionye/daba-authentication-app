@@ -41,12 +41,7 @@ code {
 .w-1{
   width: 30px !important;
 }
-.m-bg-img{
-  background-image: url(./profile.png) !important;
-  background-size: contain;
-  width: 100px !important;
-  height: 100px !important;
-}
+
 .bg-light-black{
   background-color: rgba(0,0,0,0.5);
   width: 100% !important;

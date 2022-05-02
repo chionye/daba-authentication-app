@@ -4,7 +4,7 @@ const API_URL = "http://localhost:5667/api/v1/users/";
 const AuthService = {
   login: (email, password) =>{
     return axios
-      .post(API_URL + "signin", {
+      .post(API_URL + "login", {
         email,
         password
       })
@@ -19,7 +19,7 @@ const AuthService = {
     localStorage.removeItem("user");
   },
   register: (first_name, lastname, email, password) => {
-    return axios.post(API_URL, {
+    return axios.post(API_URL + "register", {
       first_name,
       lastname,
       email,
@@ -28,6 +28,9 @@ const AuthService = {
   },
   getCurrentUser: () => {
     return JSON.parse(localStorage.getItem('user'));;
+  },
+  getUserInformation: () => {
+    return axios.get(API_URL)
   }
 }
 export default AuthService;

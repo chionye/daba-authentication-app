@@ -3,8 +3,24 @@ import Container from '../components/Container';
 import {Link} from 'react-router-dom';
 import profile from '../profile.png';
 import Navbar from '../components/Navbar';
+import {useEffect, useState} from 'react';
+import AuthService from '../services/auth.service';
 
 function Profile() {
+  const [name, setName] = useState("Xanthe Neal");
+  const [phone, setPhone] = useState("908249274292");
+  const [email, setEmail] = useState("xanthe.neal@gmail.com");
+
+  useEffect(()=>{
+    AuthService.getUserInformation()
+    .then((response)=>{
+        if (response) {
+            setName(response.name);
+            setPhone(response.phone);
+            setEmail(response.email);
+        }
+    });
+  }, [])
   return (
       <>
         <Navbar />
@@ -30,7 +46,7 @@ function Profile() {
                         <p className="lead mt-4">PHOTO</p>
                     </div>
                     <div className="col-6">
-                        <img src={profile} alt="profile" className="rounded w-25"/>
+                        <img src={profile} alt="profile" className="rounded w-25 mt-3 mt-md-0"/>
                     </div>
                 </div>
                 <div className="row border-bottom p-4">
@@ -38,7 +54,7 @@ function Profile() {
                         <p className="lead">NAME</p>
                     </div>
                     <div className="col-6">
-                        <p className="h4">Xanthe Neal</p>
+                        <p className="h6">{name}</p>
                     </div>
                 </div>
                 <div className="row border-bottom p-4">
@@ -46,7 +62,7 @@ function Profile() {
                         <p className="lead">PHONE</p>
                     </div>
                     <div className="col-6">
-                        <p className="h4 text-truncate">908249274292</p>
+                        <p className="h6 text-truncate">{phone}</p>
                     </div>
                 </div>
                 <div className="row border-bottom p-4">
@@ -54,7 +70,7 @@ function Profile() {
                         <p className="lead">EMAIL</p>
                     </div>
                     <div className="col-6">
-                        <p className="h4 text-truncate">xanthe.neal@gmail.com</p>
+                        <p className="h6 text-truncate">{email}</p>
                     </div>
                 </div>
                 <div className="row border-bottom p-4">
